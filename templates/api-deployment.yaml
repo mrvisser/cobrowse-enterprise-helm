@@ -34,7 +34,8 @@ spec:
       - envFrom:
         - secretRef:
             name: {{ .Release.Name }}-api-envvars
-        image: ghcr.io/cobrowseio/cobrowse-api-enterprise:1.12.1
+        image: cobrowse-api-enterprise:latest
+        imagePullPolicy: Never
         livenessProbe:
           failureThreshold: 3
           httpGet:

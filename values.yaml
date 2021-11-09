@@ -1,29 +1,32 @@
+# Required for dev setup
+
+domain: ""
+license: ""
+
 # Common configurations
 
 imageCredentials:
   password: ""
 
-domain: ""
-license: ""
 superusers: ""
 mongo:
-  url: ""
+  url: "mongodb://mongodb.cobrowse.svc.cluster.local:27017/cobrowse-io"
 redis:
-  url: ""
+  url: "redis://redis-redis-cluster.cobrowse.svc.cluster.local"
 stage: "enterprise"
 ssl:
   generator: ""
 
 # Kubernetes Ingress configuration
 ingress:
-  class: ""
+  class: "nginx"
   annotations: {}
 
 # Persistent Volume Storage
 storage:
   size: "50Gi"
   # you can either use a storage class
-  class: "nfs"
+  class: ""
   # or configure your own NFS server
   server: ""
   path: ""
@@ -38,7 +41,6 @@ api:
   service:
     type: ""
 
-
 # Frontend configurations
 frontend:
   replicas: 1
@@ -47,7 +49,6 @@ frontend:
 
   service:
     type: ""
-
 
 # Proxy configurations
 proxy:
@@ -59,7 +60,6 @@ proxy:
   service:
     type: ""
 
-
 # Recording configurations
 recording:
   replicas: 1
@@ -69,7 +69,6 @@ recording:
 
   service:
     type: ""
-
 
 # Sockets configurations
 sockets:
