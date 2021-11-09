@@ -1,0 +1,51 @@
+repositories:
+  - name: ingress-nginx
+    url: https://kubernetes.github.io/ingress-nginx
+  - name: bitnami
+    url: https://charts.bitnami.com/bitnami
+
+helmDefaults:
+  wait: true
+
+releases:
+  - name: mongodb
+    chart: bitnami/mongodb
+    values:
+      - auth:
+          enabled: false
+  - name: redis
+    chart: bitnami/redis-cluster
+    values:
+      - persistence:
+          enabled: false
+        usePassword: false
+  - name: ingress-nginx
+    chart: ingress-nginx/ingress-nginx
+  - name: cobrowse
+    chart: .
+    values:
+      - local-values.yaml
+      - mongo:
+          url: "mongodb://mongodb.{{ .Namespace }}.svc.cluster.local:27017/cobrowse-io"
+        redis:
+          url: "redis://redis-redis-cluster.{{ .Namespace }}.svc.cluster.local"
+        api:
+          image:
+            nameWithTag: cobrowse-api-enterprise:latest
+            pullPolicy: Never
+        frontend:
+          image:
+            nameWithTag: cobrowse-frontend-enterprise:latest
+            pullPolicy: Never
+        proxy:
+          image:
+            nameWithTag: cobrowse-proxy-enterprise:latest
+            pullPolicy: Never
+        recording:
+          image:
+            nameWithTag: cobrowse-recording-enterprise:latest
+            pullPolicy: Never
+        sockets:
+          image:
+            nameWithTag: cobrowse-api-sockets-enterprise:latest
+            pullPolicy: Never
