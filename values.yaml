@@ -1,12 +1,10 @@
-# Required for dev setup
-
-domain: ""
-license: ""
-
 # Common configurations
 
 imageCredentials:
   password: ""
+
+domain: ""
+license: ""
 
 superusers: ""
 mongo:
@@ -30,6 +28,8 @@ storage:
   # or configure your own NFS server
   server: ""
   path: ""
+
+# Image configurations
 
 # API configurations
 api:
