@@ -4,9 +4,6 @@ repositories:
   - name: bitnami
     url: https://charts.bitnami.com/bitnami
 
-helmDefaults:
-  wait: true
-
 releases:
   - name: mongodb
     chart: bitnami/mongodb
