@@ -38,7 +38,8 @@ spec:
       - envFrom:
         - secretRef:
             name: {{ .Release.Name }}-sockets-envvars
-        image: ghcr.io/cobrowseio/cobrowse-api-sockets-enterprise:1.2.11
+        image: cobrowse-api-sockets-enterprise:latest
+        imagePullPolicy: Never
         livenessProbe:
           failureThreshold: 3
           httpGet:
@@ -77,5 +78,4 @@ spec:
       - name: {{ .Release.Name }}-docker-cfg
       volumes:
       - name: data-traces
-        persistentVolumeClaim:
-          claimName: {{ .Release.Name }}-sockets-pvc
+        emptyDir: {}
