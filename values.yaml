@@ -5,31 +5,28 @@ imageCredentials:
 
 domain: ""
 license: ""
-
 superusers: ""
 mongo:
-  url: "mongodb://mongodb.cobrowse.svc.cluster.local:27017/cobrowse-io"
+  url: ""
 redis:
-  url: "redis://redis-redis-cluster.cobrowse.svc.cluster.local"
+  url: ""
 stage: "enterprise"
 ssl:
   generator: ""
 
 # Kubernetes Ingress configuration
 ingress:
-  class: "nginx"
+  class: ""
   annotations: {}
 
 # Persistent Volume Storage
 storage:
   size: "50Gi"
   # you can either use a storage class
-  class: ""
+  class: "nfs"
   # or configure your own NFS server
   server: ""
   path: ""
-
-# Image configurations
 
 # API configurations
 api:
@@ -41,6 +38,7 @@ api:
   service:
     type: ""
 
+
 # Frontend configurations
 frontend:
   replicas: 1
@@ -49,6 +47,7 @@ frontend:
 
   service:
     type: ""
+
 
 # Proxy configurations
 proxy:
@@ -60,6 +59,7 @@ proxy:
   service:
     type: ""
 
+
 # Recording configurations
 recording:
   replicas: 1
@@ -69,6 +69,7 @@ recording:
 
   service:
     type: ""
+
 
 # Sockets configurations
 sockets:
