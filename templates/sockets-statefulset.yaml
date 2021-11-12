@@ -78,5 +78,4 @@ spec:
       - name: {{ .Release.Name }}-docker-cfg
       volumes:
       - name: data-traces
-        persistentVolumeClaim:
-          claimName: {{ .Release.Name }}-sockets-pvc
+        emptyDir: {}
