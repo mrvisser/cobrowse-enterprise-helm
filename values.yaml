@@ -35,6 +35,9 @@ api:
   memory: ""
   debug: ""
 
+  podAnnotations:
+    prometheus.io/scrape: "true"
+
   service:
     type: ""
 
@@ -56,6 +59,9 @@ proxy:
   memory: ""
   debug: ""
 
+  podAnnotations:
+    prometheus.io/scrape: "true"
+
   service:
     type: ""
 
@@ -67,6 +73,9 @@ recording:
   memory: ""
   debug: ""
 
+  podAnnotations:
+    prometheus.io/scrape: "true"
+
   service:
     type: ""
 
@@ -77,6 +86,9 @@ sockets:
   cpu: ""
   memory: ""
   debug: ""
+
+  podAnnotations:
+    prometheus.io/scrape: "true"
 
   service:
     type: ""

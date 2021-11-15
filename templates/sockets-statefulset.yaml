@@ -21,6 +21,11 @@ spec:
     metadata:
       annotations:
         checksum/config: {{ include (print $.Template.BasePath "/sockets-secret.yaml") . | sha256sum }}
+        prometheus.io/path: "/metrics"
+        prometheus.io/port: "8080"
+      {{- if .Values.sockets.podAnnotations }}
+        {{ toYaml .Values.sockets.podAnnotations | nindent 8 }}
+      {{- end }}
       labels:
         component: sockets
         stage: {{ .Values.stage | quote }}
